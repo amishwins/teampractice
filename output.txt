@@ -1,0 +1,149 @@
+commit 933691dcfdcd5034874d3f0c11053e89ecf50a59
+Author: Amish Gala <amish.gala@gmail.com>
+Date:   Sat Apr 6 01:28:10 2013 -0400
+
+    Move object creation up
+    
+    Better to have a reference to the object for later.
+
+diff --git a/src/Driver.java b/src/Driver.java
+index d1ee4e6..eae7a6d 100644
+--- a/src/Driver.java
++++ b/src/Driver.java
+@@ -3,7 +3,9 @@ public class Driver {
+ 		System.out.println("This is fun!");
+ 		System.out.println("I want to check this in!");
+ 		
+-		System.out.println((new FunObject()).getMeTheName());
++		// Bad idea, let's bring the object out
++		FunObject myObj = new FunObject();
++		System.out.println(myObj.getMeTheName());
+ 	}
+ 
+ }
+
+commit 95ac5e753f013791801dbd0206ada3cad0739022
+Author: Amish Gala <amish.gala@gmail.com>
+Date:   Sat Apr 6 01:24:52 2013 -0400
+
+    Fun with log files
+    
+    This is an extended description. I can't wait to see what's up!
+
+diff --git a/src/Driver.java b/src/Driver.java
+index 7090e68..d1ee4e6 100644
+--- a/src/Driver.java
++++ b/src/Driver.java
+@@ -1,6 +1,9 @@
+ public class Driver {
+ 	public static void main(String[] args) {
+ 		System.out.println("This is fun!");
++		System.out.println("I want to check this in!");
++		
++		System.out.println((new FunObject()).getMeTheName());
+ 	}
+ 
+ }
+diff --git a/src/FunObject.java b/src/FunObject.java
+new file mode 100644
+index 0000000..2743912
+--- /dev/null
++++ b/src/FunObject.java
+@@ -0,0 +1,13 @@
++
++public class FunObject {
++	private String _name;
++	
++	public FunObject() {
++		_name = "Wee!";
++	}
++	
++	public String getMeTheName() {
++		return _name;
++	}
++
++}
+
+commit 715da88b84ac0684b7fd6f78b882acf4136bac70
+Author: Amish Gala <amish.gala@gmail.com>
+Date:   Mon Mar 18 14:56:34 2013 -0400
+
+    This is fun! I like learning!
+
+diff --git a/.classpath b/.classpath
+new file mode 100644
+index 0000000..fb50116
+--- /dev/null
++++ b/.classpath
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<classpath>
++	<classpathentry kind="src" path="src"/>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
++	<classpathentry kind="output" path="bin"/>
++</classpath>
+diff --git a/.project b/.project
+new file mode 100644
+index 0000000..dbd9c4b
+--- /dev/null
++++ b/.project
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>teampractice</name>
++	<comment></comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.jdt.core.javabuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.jdt.core.javanature</nature>
++	</natures>
++</projectDescription>
+diff --git a/src/Driver.java b/src/Driver.java
+new file mode 100644
+index 0000000..7090e68
+--- /dev/null
++++ b/src/Driver.java
+@@ -0,0 +1,6 @@
++public class Driver {
++	public static void main(String[] args) {
++		System.out.println("This is fun!");
++	}
++
++}
+
+commit 26bd0197ea22671dc5fb33235ba9c594062f8eb9
+Author: Amish <amish.gala@gmail.com>
+Date:   Mon Mar 18 11:39:16 2013 -0700
+
+    Initial commit
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..0f182a0
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,6 @@
++*.class
++
++# Package Files #
++*.jar
++*.war
++*.ear
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..749a486
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,4 @@
++teampractice
++============
++
++This is for team practice!
+\ No newline at end of file
