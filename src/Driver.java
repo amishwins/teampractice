@@ -3,7 +3,9 @@ public class Driver {
 		System.out.println("This is fun!");
 		System.out.println("I want to check this in!");
 		
-		System.out.println((new FunObject()).getMeTheName());
+		// Bad idea, let's bring the object out
+		FunObject myObj = new FunObject();
+		System.out.println(myObj.getMeTheName());
 	}
 
 }
